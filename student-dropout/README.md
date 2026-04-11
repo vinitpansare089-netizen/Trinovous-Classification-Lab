@@ -20,7 +20,7 @@ This project builds a machine learning model to predict:
 
 ## 🧠 Key Learning Objectives
 
-* Understand classification deeply (not just apply it)
+* Understand classification deeply 
 * Build modular ML pipelines (industry-level structure)
 * Handle data leakage and feature selection
 * Learn evaluation metrics beyond accuracy:
