@@ -6,7 +6,8 @@ from src.preprocessing import (
     split_data,
     scale_data
 )
-
+from src.model import train_logistic
+from src.evaluate import evaluate_model
 def pipeline():
 
     df = load_data("data/raw/dataset.csv")
@@ -21,7 +22,11 @@ def pipeline():
 
     X_train, X_test = scale_data(X_train, X_test)
 
-    return X_train, X_test, y_train, y_test
+    model = train_logistic(X_train, y_train)
+
+    evaluate_model(model, X_test, y_test)
+
+    return model
 
 
 
