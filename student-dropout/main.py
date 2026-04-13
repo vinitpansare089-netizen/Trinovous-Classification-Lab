@@ -1,15 +1,26 @@
 from src.data_loader import load_data
+from src.preprocessing import (
+    encode_data,
+    feature_engineering,
+    split_features,
+    split_data,
+    scale_data
+)
 
-df = load_data("data/raw/dataset.csv")
+def run_pipeline(df):
 
-# print(df.head(10))
-print(df.columns)
-# print(df.info())
+    df = load_data("data/raw/dataset.csv")
 
-# print(df.nunique().sort_values(ascending=False))
+    df = encode_data(df)
+    df = feature_engineering(df)
 
-# print(df.corr(numeric_only=True)['Target'].sort_values())
+    X, y = split_features(df)
 
+    X_train, X_test, y_train, y_test = split_data(X, y)
+
+    X_train, X_test = scale_data(X_train, X_test)
+
+    return X_train, X_test, y_train, y_test
 
 
 
