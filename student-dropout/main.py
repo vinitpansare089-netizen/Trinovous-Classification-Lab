@@ -7,11 +7,12 @@ from src.preprocessing import (
     scale_data
 )
 
-def run_pipeline(df):
+def pipeline():
 
     df = load_data("data/raw/dataset.csv")
 
     df = encode_data(df)
+
     df = feature_engineering(df)
 
     X, y = split_features(df)
@@ -21,6 +22,8 @@ def run_pipeline(df):
     X_train, X_test = scale_data(X_train, X_test)
 
     return X_train, X_test, y_train, y_test
+
+
 
 
 
