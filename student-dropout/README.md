@@ -63,7 +63,6 @@ student_dropout_project/
 ```
 Raw Data → Cleaning → Target Creation → Feature Selection → Processed Data → Model Training → Evaluation
 ```
-
 ---
 
 ## 📊 Dataset
