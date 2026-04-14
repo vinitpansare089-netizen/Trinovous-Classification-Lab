@@ -24,7 +24,6 @@ This project builds a machine learning model to predict:
 * Build modular ML pipelines (industry-level structure)
 * Handle data leakage and feature selection
 * Learn evaluation metrics beyond accuracy:
-
   * Precision
   * Recall
   * F1-score
