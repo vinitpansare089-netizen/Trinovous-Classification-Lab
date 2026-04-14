@@ -12,8 +12,8 @@ The goal is to predict whether a student is likely to **drop out** or **continue
 Educational institutions face high dropout rates.
 This project builds a machine learning model to predict:
 
-* ❌ Dropout (1)
-* ✅ Not Dropout (0)
+*  Dropout (1)
+* Not Dropout (0)
 
 ---
 
