@@ -33,7 +33,6 @@ This project builds a machine learning model to predict:
 
 ## 📂 Project Structure
 
-
 student_dropout_project/
 │
 ├── data/
