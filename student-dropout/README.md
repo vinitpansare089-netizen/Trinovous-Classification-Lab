@@ -5,7 +5,6 @@
 This project is part of my **Trinovous AI/ML journey**, focusing on building a real-world **classification system** from scratch using an industry-style modular pipeline.
 
 The goal is to predict whether a student is likely to **drop out** or **continue**, enabling early intervention strategies.
-
 ---
 
 ## 🎯 Problem Statement
