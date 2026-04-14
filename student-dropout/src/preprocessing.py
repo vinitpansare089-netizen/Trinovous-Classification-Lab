@@ -7,8 +7,8 @@ def encode_data(df):
     df = pd.get_dummies(df, drop_first=True)
     return df
 
-def feature_engineering(df):
-    return 
+# def feature_engineering(df):
+#     return 
 
 def split_features(df):
     X = df.drop("target", axis = 1)
