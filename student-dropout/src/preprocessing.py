@@ -8,7 +8,20 @@ def encode_data(df):
     return df
 
 def feature_engineering(df):
-    return 
+
+    
+    df["high_absence"] = df["absences"].apply(lambda x: 1 if x > 10 else 0)
+    df["has_failures"] = df["failures"].apply(lambda x: 1 if x > 0 else 0)
+
+    
+    if "schoolsup" in df.columns and "famsup" in df.columns:
+        df["total_support"] = df["schoolsup"] + df["famsup"]
+
+    
+    if "studytime" in df.columns and "failures" in df.columns:
+        df["study_fail_interaction"] = df["studytime"] * df["failures"]
+
+    return df
 
 def split_features(df):
     X = df.drop("target", axis = 1)
