@@ -9,23 +9,87 @@ def encode_data(df):
 
 def feature_engineering(df):
 
-    
-    df["high_absence"] = df["absences"].apply(lambda x: 1 if x > 10 else 0)
-    df["has_failures"] = df["failures"].apply(lambda x: 1 if x > 0 else 0)
+    # ===============================
+    # 🎯 1. Academic Performance Ratio
+    # ===============================
 
-    
-    if "schoolsup" in df.columns and "famsup" in df.columns:
-        df["total_support"] = df["schoolsup"] + df["famsup"]
+    df["sem1_pass_ratio"] = df["Curricular units 1st sem (approved)"] / (
+        df["Curricular units 1st sem (enrolled)"] + 1
+    )
 
-    
-    if "studytime" in df.columns and "failures" in df.columns:
-        df["study_fail_interaction"] = df["studytime"] * df["failures"]
+    df["sem2_pass_ratio"] = df["Curricular units 2nd sem (approved)"] / (
+        df["Curricular units 2nd sem (enrolled)"] + 1
+    )
+
+    # ===============================
+    # 📊 2. Average Grades
+    # ===============================
+
+    df["avg_grade"] = (
+        df["Curricular units 1st sem (grade)"] +
+        df["Curricular units 2nd sem (grade)"]
+    ) / 2
+
+    # ===============================
+    # ⚡ 3. Engagement Score
+    # ===============================
+
+    df["engagement"] = (
+        df["Curricular units 1st sem (evaluations)"] +
+        df["Curricular units 2nd sem (evaluations)"]
+    )
+
+    # ===============================
+    # ⚠️ 4. Risk Flags
+    # ===============================
+
+    df["high_debt"] = df["Debtor"].apply(lambda x: 1 if x == 1 else 0)
+
+    df["fees_issue"] = df["Tuition fees up to date"].apply(
+        lambda x: 0 if x == 1 else 1
+    )
+
+    # ===============================
+    # 📉 5. Low Performance Flag
+    # ===============================
+
+    df["low_performance"] = df["avg_grade"].apply(
+        lambda x: 1 if x < 10 else 0
+    )
+
+    # ===============================
+    # 🔗 6. Combined Risk Score
+    # ===============================
+
+    df["risk_score"] = (
+        df["high_debt"] +
+        df["fees_issue"] +
+        df["low_performance"]
+    )
+
+    # ===============================
+    # 👨‍👩‍👧 7. Parent Education Level
+    # ===============================
+
+    df["parent_edu_avg"] = (
+        df["Mother's qualification"] +
+        df["Father's qualification"]
+    ) / 2
+
+    # ===============================
+    # 📊 8. Total Approved Units
+    # ===============================
+
+    df["total_approved"] = (
+        df["Curricular units 1st sem (approved)"] +
+        df["Curricular units 2nd sem (approved)"]
+    )
 
     return df
 
 def split_features(df):
-    X = df.drop("target", axis = 1)
-    y = df["target"]
+    X = df.drop("Target", axis = 1)
+    y = df["Target"]
 
     return X, y
 

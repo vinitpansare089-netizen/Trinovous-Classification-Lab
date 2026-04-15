@@ -11,6 +11,7 @@ from src.evaluate import evaluate_model
 def pipeline():
 
     df = load_data("data/raw/dataset.csv")
+    print(df.columns)
 
     df = encode_data(df)
 
