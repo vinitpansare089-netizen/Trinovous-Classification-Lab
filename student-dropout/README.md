@@ -14,7 +14,6 @@ This project builds a machine learning model to predict:
 
 *  Dropout (1)
 * Not Dropout (0)
-
 ---
 
 ## 🧠 Key Learning Objectives
