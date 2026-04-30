@@ -106,4 +106,3 @@ def scale_data(X_train, X_test):
     joblib.dump(scaler, "models/scaler.pkl")
 
     return X_train, X_test
-
