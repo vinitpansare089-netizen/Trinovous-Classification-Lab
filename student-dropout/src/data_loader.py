@@ -8,4 +8,3 @@ def load_data(path):
         return df
     except FileNotFoundError as e:
         raise FileNotFoundError(f"Invalid File captain{e}")
-    
