@@ -107,5 +107,3 @@ def scale_data(X_train, X_test):
 
     return X_train, X_test
 
-
-
